@@ -46,7 +46,7 @@ async function connectToWhatsApp() {
 
         const id = message.key.remoteJid;
 
-        const sent = async (text, mentions = [] = {}) => {
+        const sent = async (text, mentions = {}) => {
             await sock.sendMessage(
                 id,
                 { 
