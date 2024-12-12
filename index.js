@@ -16,12 +16,12 @@ async function connectToWhatsApp() {
             level: 'silent'
         }),
         browser: [
-            'obi-wan',
             'kenobi',
+            'bot',
             '1.0.0'
         ],
-        syncFullHistory: true,
-        generateHighQualityLinkPreview: true
+        syncFullHistory: false,
+        generateHighQualityLinkPreview: false
     });
 
 
@@ -34,6 +34,7 @@ async function connectToWhatsApp() {
 
             if (shouldReconnect) {
                 console.log('Reconnecting...');
+                connectToWhatsApp();
             } else {
                 console.log('Session logged out. Please re-authenticate.');
             }
@@ -132,7 +133,5 @@ async function connectToWhatsApp() {
 
     sock.ev.on('creds.update', saveCreds);
 }
-
-
 
 connectToWhatsApp();
