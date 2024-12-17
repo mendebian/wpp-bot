@@ -77,6 +77,25 @@ async function connectToWhatsApp() {
             case 'ping':
                 sent('Pong!');
                 break;
+            case 'flores':
+            case 'tricolores':
+            case 'ffc':
+				const tricolores = [
+					"5521967808871@s.whatsapp.net",
+					"5521991885832@s.whatsapp.net",
+					"5521995882144@s.whatsapp.net",
+					"5521972017120@s.whatsapp.net",
+					"5521970610426@s.whatsapp.net",
+					"5521999632583@s.whatsapp.net",
+					"553498310710@s.whatsapp.net"
+				];
+
+				await sock.sendMessage(
+					id, {
+					text: "🇭🇺",
+					mentions: tricolores
+				});
+				break;
             case 's':
                 const mediaType = alt[0] === 'imageMessage' ? 'image' : alt[0] === 'videoMessage' ? 'video' : null;
                 if (!mediaType) return sent('Unknown media.');
